@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 function Footer() {
     return (
-        <FooterContainer>
+        <FooterContainer className="mt-4">
             <div className="main-Footer">
                 <div className="container text-center">
                     <div className="socialMedia">

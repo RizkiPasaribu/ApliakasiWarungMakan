@@ -1205,6 +1205,34 @@
     "exec-sh" "^0.3.2"
     "minimist" "^1.2.0"
 
+"@compone/class@^1.1.1":
+  "integrity" "sha512-pbODcJi0TdyKQ/PTHSHLwO4h/r5EgMdkPQLdBSaZBUiBuWdGil+0PEhpfhAWDuFrwVPKiCHYQOfs8WyGe9ABWA=="
+  "resolved" "https://registry.npmjs.org/@compone/class/-/class-1.1.1.tgz"
+  "version" "1.1.1"
+
+"@compone/define@^1.2.4":
+  "integrity" "sha512-w0ZDiYMIppvb1epoNY64pkEACwn9693cc7qM1ZSKWUVZczx5vlR4iZM7by129IYUdCq0SsbxQbbPZjnzj/0Qew=="
+  "resolved" "https://registry.npmjs.org/@compone/define/-/define-1.2.4.tgz"
+  "version" "1.2.4"
+  dependencies:
+    "@compone/class" "^1.1.1"
+    "@compone/event" "^1.1.2"
+
+"@compone/event@^1.1.2":
+  "integrity" "sha512-baJDnAr8pWefqfltNS33HieD+s23YO+w2/RD6lPxIEzlOuM1R5RT5vpUUTcrzn0Er3oj62PlfMUyS0SwnVw67Q=="
+  "resolved" "https://registry.npmjs.org/@compone/event/-/event-1.1.2.tgz"
+  "version" "1.1.2"
+  dependencies:
+    "utilise" "^2.3.5"
+
+"@compone/style@^1.0.0":
+  "integrity" "sha512-OzEbf5O88x+hyJyqW+Ya7H6pFV0em0HnfA+uC2ORS00I0FS6Zq3xUEiBX7uKZHaEbV8GywBchYKkPM4GW6IT6w=="
+  "resolved" "https://registry.npmjs.org/@compone/style/-/style-1.0.1.tgz"
+  "version" "1.0.1"
+  dependencies:
+    "cssscope" "^0.1.0"
+    "djbx" "^1.0.3"
+
 "@csstools/convert-colors@^1.4.0":
   "integrity" "sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw=="
   "resolved" "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz"
@@ -2584,6 +2612,13 @@
   "resolved" "https://registry.npmjs.org/axe-core/-/axe-core-4.1.2.tgz"
   "version" "4.1.2"
 
+"axios@^0.21.1":
+  "integrity" "sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
+  "version" "0.21.1"
+  dependencies:
+    "follow-redirects" "^1.10.0"
+
 "axobject-query@^2.2.0":
   "integrity" "sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA=="
   "resolved" "https://registry.npmjs.org/axobject-query/-/axobject-query-2.2.0.tgz"
@@ -3480,6 +3515,11 @@
   "resolved" "https://registry.npmjs.org/colorette/-/colorette-1.2.1.tgz"
   "version" "1.2.1"
 
+"colors@^1.2.3":
+  "integrity" "sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA=="
+  "resolved" "https://registry.npmjs.org/colors/-/colors-1.4.0.tgz"
+  "version" "1.4.0"
+
 "combined-stream@^1.0.6", "combined-stream@~1.0.6":
   "integrity" "sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg=="
   "resolved" "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz"
@@ -3990,6 +4030,11 @@
   "resolved" "https://registry.npmjs.org/cssom/-/cssom-0.3.8.tgz"
   "version" "0.3.8"
 
+"cssscope@^0.1.0":
+  "integrity" "sha512-JW7YFPiZJpT2+z+odH23QKezNKQLykP5WNWFzDnyl5h+0lUCf4JTGoSxynpVKQnqXdZf1Jxb9TNBmfzprzhYAg=="
+  "resolved" "https://registry.npmjs.org/cssscope/-/cssscope-0.1.0.tgz"
+  "version" "0.1.0"
+
 "cssstyle@^2.2.0":
   "integrity" "sha512-AZL67abkUzIuvcHqk7c09cezpGNcxUxU4Ioi/05xHk4DQeTkWmGYftIE6ctU6AEt+Gn4n1lDStOtj7FKycP71A=="
   "resolved" "https://registry.npmjs.org/cssstyle/-/cssstyle-2.3.0.tgz"
@@ -4240,6 +4285,11 @@
   "version" "3.0.1"
   dependencies:
     "path-type" "^4.0.0"
+
+"djbx@^1.0.3":
+  "integrity" "sha512-Y8ph/85fEChtSgSgw1asP4cGLNLxlbnDBnQMpX8+MOpaiYyOn8assnSpIrwHuoGZV/sE1DUbKh9aeKlWZdHKEg=="
+  "resolved" "https://registry.npmjs.org/djbx/-/djbx-1.0.3.tgz"
+  "version" "1.0.3"
 
 "dns-equal@^1.0.0":
   "integrity" "sha1-s55/HabrCnW6nBcySzR1PEfgZU0="
@@ -5221,7 +5271,7 @@
     "inherits" "^2.0.3"
     "readable-stream" "^2.3.6"
 
-"follow-redirects@^1.0.0":
+"follow-redirects@^1.0.0", "follow-redirects@^1.10.0":
   "integrity" "sha512-6mPTgLxYm3r6Bkkg0vNM0HTjfGrOEtsfbhagQvbxDEsEkpNhw582upBaoRZylzen6krEmxXJgt9Ju6HiI4O7BA=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.2.tgz"
   "version" "1.13.2"
@@ -10792,6 +10842,14 @@
     "unquote" "~1.1.1"
     "util.promisify" "~1.0.0"
 
+"sweet-alert@^2.0.5":
+  "integrity" "sha512-UrzrZDCDrVWyrS0pmXQs9eaxb0s++4EuDyS+sESqI9IEj9l8AKVTv7/KHVaIE2uERwcgncnZW5fO4o+xUy0JFA=="
+  "resolved" "https://registry.npmjs.org/sweet-alert/-/sweet-alert-2.0.5.tgz"
+  "version" "2.0.5"
+  dependencies:
+    "@compone/define" "^1.2.4"
+    "@compone/style" "^1.0.0"
+
 "symbol-tree@^3.2.4":
   "integrity" "sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw=="
   "resolved" "https://registry.npmjs.org/symbol-tree/-/symbol-tree-3.2.4.tgz"
@@ -10912,6 +10970,11 @@
   "integrity" "sha512-fcwX4mndzpLQKBS1DVYhGAcYaYt7vsHNIvQV+WXMvnow5cgjPphq5CaayLaGsjRdSCKZFNGt7/GYAuXaNOiYCA=="
   "resolved" "https://registry.npmjs.org/throat/-/throat-5.0.0.tgz"
   "version" "5.0.0"
+
+"through@^2.3.8":
+  "integrity" "sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU="
+  "resolved" "https://registry.npmjs.org/through/-/through-2.3.8.tgz"
+  "version" "2.3.8"
 
 "through2@^2.0.0":
   "integrity" "sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ=="
@@ -11339,6 +11402,14 @@
   "integrity" "sha1-ihagXURWV6Oupe7MWxKk+lN5dyw="
   "resolved" "https://registry.npmjs.org/utila/-/utila-0.4.0.tgz"
   "version" "0.4.0"
+
+"utilise@^2.3.5":
+  "integrity" "sha512-scuRvOkBODMEvS87Uz0Pe3f737JSszUAgB9pHHOHaHroA0MfFC+STXBIDT3x/uMQx/9sbREJnHUhs9xfRPT+gg=="
+  "resolved" "https://registry.npmjs.org/utilise/-/utilise-2.3.8.tgz"
+  "version" "2.3.8"
+  dependencies:
+    "colors" "^1.2.3"
+    "through" "^2.3.8"
 
 "utils-merge@1.0.1":
   "integrity" "sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM="

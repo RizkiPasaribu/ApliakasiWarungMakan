@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karantina&display=swap');
 
 .main-Footer{
     font-family: 'Zen Dots', cursive;
+}
+
+.menus{
+    font-family: 'Karantina', cursive;
+}
+
+h3{
+    border-bottom: 2px solid black;
+}
+
+.card-body,.list-group-item{
+    font-size: 20px;
+}
+
+.active{
+   background-color: rgb(63, 63, 63) !important;
+   border: none;
 }

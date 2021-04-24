@@ -4,10 +4,9 @@ import {Link} from 'react-router-dom'
 
 function Navbar() {
     return (
-        <Nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-
+        <Nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
             <div className="container">
-                <Link className="navbar-brand font-weight-bold" to="/home">Ryu-Def</Link>
+                <Link className="navbar-brand font-weight-bold" to="/">Ryu-Def</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>

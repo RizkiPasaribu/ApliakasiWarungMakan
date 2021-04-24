@@ -1,35 +1,32 @@
 // react router
 import {Switch, Route} from 'react-router-dom';
 
-import React, { Component } from 'react';
+import React,{Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
 
 import './App.css';
-import $ from 'jquery';
 
-import Navbar from './Component/layouts/Navbar';
-import Footer from './Component/layouts/Footer';
+import Navbar from './Component/Templates/Navbar';
+import Footer from './Component/Templates/Footer';
 
 //pages
-import Home from './Component/pages/Home';
-import About from './Component/pages/About';
-import Notfound from './Component/pages/Notfound';
+import Home from './Component/Pages/Home';
+import About from './Component/Pages/About';
+import Notfound from './Component/Pages/Notfound';
 
 export default class App extends Component {
-
-  componentDidMount(){
-    console.log($('a'));
-  }
-  
-
   render() {
     return (
       <div>
         <Navbar/>
           <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/about" component={About}/>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route path="/about">
+              <About/>
+            </Route>
             <Route component={Notfound}/>
           </Switch>
         <Footer/>
