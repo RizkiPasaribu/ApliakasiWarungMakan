@@ -3,6 +3,9 @@ import {API_URL} from '../../util/constants';
 import axios from 'axios';
 
 export default class Catagories extends Component {
+    awalactive(props){
+        if(props === "Makanan") return "active"
+    }
     //handle logo font awesomes
     Icon = (nama) =>{
         if (nama === 'Makanan') return <i className="fas fa-utensils mr-2"></i>
@@ -20,11 +23,7 @@ export default class Catagories extends Component {
         hapusactive.forEach(e => {
             e.classList.remove('active')
         });
-
-        if(this.props.dipilih==nama){
-
-            e.target.classList.add("active");
-        }
+        e.target.classList.add("active");
     }
 
     constructor(props) {
@@ -48,11 +47,10 @@ export default class Catagories extends Component {
 
     render() {
         const {categories} = this.state;//destructerring
-        // const {fungsi,dipilih} = this.props;
         return (
             <ul className="list-group" style={{cursor: 'pointer'}}>
                 {categories.map((data)=>
-                    <li onClick={(e)=>this.active(e,data.nama)} key={data.id} className="list-group-item mt-0 mb-0">{this.Icon(data.nama)} {data.nama}</li>
+                    <li onClick={(e)=>this.active(e,data.nama)} key={data.id} className={"list-group-item mt-0 mb-0 "+ this.awalactive(data.nama)}> {data.nama}</li>
                 )}
             </ul>
         )
