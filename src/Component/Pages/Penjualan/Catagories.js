@@ -10,7 +10,7 @@ export default class Catagories extends Component {
     Icon = (nama) =>{
         if (nama === 'Makanan') return <i className="fas fa-utensils mr-2"></i>
         if (nama === 'Minuman') return <i className="fas fa-coffee"></i>
-        if (nama === 'Cemilan') return <i className="fas fa-cookie mr-1"></i>
+        if (nama === 'Cemilan') return <i className="fas fa-cookie mr-2"></i>
     }
 
     //ngatasi class avtive
@@ -50,7 +50,7 @@ export default class Catagories extends Component {
         return (
             <ul className="list-group" style={{cursor: 'pointer'}}>
                 {categories.map((data)=>
-                    <li onClick={(e)=>this.active(e,data.nama)} key={data.id} className={"list-group-item mt-0 mb-0 "+ this.awalactive(data.nama)}> {data.nama}</li>
+                    <li onClick={(e)=>this.active(e,data.nama)} key={data.id} className={"list-group-item mt-0 mb-0 "+ this.awalactive(data.nama)}>{this.Icon(data.nama)} {data.nama}</li>
                 )}
             </ul>
         )

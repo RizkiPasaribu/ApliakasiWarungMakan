@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import Menu from './Penjualan/Menu';
 import Catagories from './Penjualan/Catagories';
 import Keranjang from './Penjualan/Keranjang';
+import TotalBayar from './Penjualan/TotalBayar';
 
 export default class Home extends Component {
 
@@ -57,7 +58,8 @@ export default class Home extends Component {
                         title: 'Sukses',
                         text: 'Sukses Masuk Keranjang',
                         showConfirmButton:false,
-                        width:300
+                        width:300,
+                        timer:2000
                     })
                 })
                 .catch(function (error) {
@@ -77,7 +79,8 @@ export default class Home extends Component {
                         title: 'Sukses',
                         text: 'Sukses Masuk Keranjang',
                         showConfirmButton:false,
-                        width:300
+                        width:300,
+                        timer:2000
                     })
                 })
                 .catch(function (error) {
@@ -94,7 +97,7 @@ export default class Home extends Component {
     
     //cekk realtime update
     componentDidUpdate(prevState){
-        if(this.state.keranjangs === prevState.keranjang){
+        if(this.state.keranjangs !== prevState.keranjang){
             axios.get(API_URL+"keranjangs")
             .then(response => {
                 const keranjangs = response.data;
@@ -144,6 +147,8 @@ export default class Home extends Component {
                     <div className="col-lg-3">
                         <h3>Pesanan</h3>
                         <Keranjang keranjang={this.state.keranjangs}/>
+
+                        {this.state.keranjangs.length !==0 &&  <TotalBayar keranjang={this.state.keranjangs}/>}
                     </div>
                 </div>
             </div>
