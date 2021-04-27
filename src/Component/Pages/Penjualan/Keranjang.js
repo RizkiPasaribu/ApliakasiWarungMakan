@@ -21,7 +21,7 @@ export default class Keranjang extends Component {
                                 </div>
 
                                 <div className="col">
-                                    <h3 style={{border:'none',marginLeft:'-40px'}}>Rp {data.totalharga}</h3>
+                                    <h3 style={{border:'none',marginLeft:'-40px'}}>Rp {numberWithCommas(data.totalharga)}</h3>
                                 </div>
                             </div>
                         </li>

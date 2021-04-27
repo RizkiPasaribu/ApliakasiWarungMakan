@@ -53,6 +53,7 @@ export default class Home extends Component {
                 //jika tidak ada tambah data baru
                 axios.post(API_URL+"keranjangs",keranjang)
                 .then(response => {
+                    this.cekMasuk();
                     Swal.fire({
                         icon: 'success',
                         title: 'Sukses',
@@ -74,13 +75,14 @@ export default class Home extends Component {
                 }  
                 axios.put(API_URL+"keranjangs/"+res.data[0].id,keranjang)
                 .then(response => {
+                    this.cekMasuk();
                     Swal.fire({
                         icon: 'success',
                         title: 'Sukses',
                         text: 'Sukses Masuk Keranjang',
                         showConfirmButton:false,
                         width:300,
-                        timer:2000
+                        timer:900
                     })
                 })
                 .catch(function (error) {
@@ -96,17 +98,29 @@ export default class Home extends Component {
     }
     
     //cekk realtime update
-    componentDidUpdate(prevState){
-        if(this.state.keranjangs !== prevState.keranjang){
-            axios.get(API_URL+"keranjangs")
+    // componentDidUpdate(prevState){
+    //     if(this.state.keranjangs !== prevState.keranjang){
+    //         axios.get(API_URL+"keranjangs")
+    //         .then(response => {
+    //             const keranjangs = response.data;
+    //             this.setState({keranjangs});
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         })
+    //     }
+    // }
+
+    //cek data masuk
+    cekMasuk(){
+        axios.get(API_URL+"keranjangs")
             .then(response => {
                 const keranjangs = response.data;
                 this.setState({keranjangs});
             })
             .catch(function (error) {
-                console.log(error);
-            })
-        }
+            console.log(error);
+        })
     }
 
     componentDidMount(){
@@ -119,18 +133,10 @@ export default class Home extends Component {
             console.log(error);
         })
 
-        axios.get(API_URL+"keranjangs")
-        .then(response => {
-            const keranjangs = response.data;
-            this.setState({keranjangs});
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+        this.cekMasuk();
     }
 
     render() {
-        // console.log(this.state.keranjangs)
         return (
             <div className="container-fluid menus">
                 <div className="row">
@@ -146,9 +152,9 @@ export default class Home extends Component {
 
                     <div className="col-lg-3">
                         <h3>Pesanan</h3>
-                        <Keranjang keranjang={this.state.keranjangs}/>
+                        <Keranjang keranjang={this.state.keranjangs}{...this.props}/>
 
-                        {this.state.keranjangs.length !==0 &&  <TotalBayar keranjang={this.state.keranjangs}/>}
+                        {this.state.keranjangs.length !==0 &&  <TotalBayar keranjang={this.state.keranjangs}{...this.props}/>}
                     </div>
                 </div>
             </div>
