@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {numberWithCommas} from '../../action/action';
 import Modal from './Modal';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import {API_URL} from '../../util/constants';
 
 export default class Keranjang extends Component {
     constructor(props) {
@@ -9,20 +12,24 @@ export default class Keranjang extends Component {
         this.state = {
             keranjangDetail: false,
             jumlah: 0,
-            keterangan:''
+            keterangan:'',
+            totalharga:0,
         }
     }
     
     async ambilData(data){
         await this.setState({
             keranjangDetail:data,
-            jumlah:data.jumlah
+            jumlah:data.jumlah,
+            totalharga:data.totalharga,
+            keterangan:data.keterangan,
         })
     }
 
     tambah=()=>{   
         this.setState({
-            jumlah:this.state.jumlah+1
+            jumlah:this.state.jumlah+1,
+            totalharga:this.state.keranjangDetail.product.harga*(this.state.jumlah+1)
         })
     }
     
@@ -30,6 +37,7 @@ export default class Keranjang extends Component {
         if(this.state.jumlah !== 1){
             this.setState({
                 jumlah:this.state.jumlah-1,
+                totalharga:this.state.keranjangDetail.product.harga*(this.state.jumlah-1)
             })
         }
     }
@@ -38,11 +46,53 @@ export default class Keranjang extends Component {
         await this.setState({
             keterangan:e.target.value
         })
-        console.log(this.state.keterangan);
+    }
+
+    submit = async()=>{
+        const data={
+            jumlah:this.state.jumlah,
+            totalharga:this.state.totalharga,
+            keterangan:this.state.keterangan,
+            product:this.state.keranjangDetail.product
+        }  
+        await axios.put(API_URL+"keranjangs/"+this.state.keranjangDetail.id,data)
+        .then(() => {
+            this.props.cekMasuk();
+            Swal.fire({
+                icon: 'success',
+                title: 'Sukses',
+                text: 'Sukses Update Pesanan',
+                showConfirmButton:false,
+                width:300,
+                timer:900
+            })
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+    }
+
+    HapusP = async(id)=>{
+        await axios.delete(API_URL+"keranjangs/"+id)
+        .then(() => {
+            this.props.cekMasuk();
+            Swal.fire({
+                icon: 'success',
+                title: 'Sukses',
+                text: 'Pesanan Dihapus',
+                showConfirmButton:false,
+                width:300,
+                timer:900
+            })
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     }
 
     render() {
         const {keranjang} = this.props;
+        // console.log(this.props)
         return (
             <ul className="list-group">
                 {keranjang !== 0 && //cek keranjang seperti menggunakan if statement
@@ -71,7 +121,7 @@ export default class Keranjang extends Component {
                         </li>
                     )
                 }
-                {this.state.keranjangDetail !==false && <Modal keranjangModal={this.state} tambah={this.tambah} kurang={this.kurang} keterangan={this.keterangan}/>}
+                {this.state.keranjangDetail !==false && <Modal keranjangModal={this.state} tambah={this.tambah} kurang={this.kurang} keterangan={this.keterangan} hapusPesanan={this.HapusP} submit={this.submit} />}
             </ul>
         )
     }

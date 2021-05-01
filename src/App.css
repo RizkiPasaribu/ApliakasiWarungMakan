@@ -21,3 +21,7 @@ h3{
    background-color: #343a40 !important;
    border: none;
 }
+
+.sembunyi{
+    display: none;
+}

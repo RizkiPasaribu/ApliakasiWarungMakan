@@ -5,13 +5,13 @@ import {API_URL} from '../../util/constants';
 
 export default class TotalBayar extends Component {
     //push ke pesanan
-    submitTotal = (total)=>{
+    submitTotal = async(total)=>{
         const pesanan = {
             totalBayar : total,
             menus:this.props.keranjang
         }
 
-        axios.post(API_URL+"pesanans",pesanan)
+        await axios.post(API_URL+"pesanans",pesanan)
         .then(()=>{
             this.props.history.push("/sukses");
         })

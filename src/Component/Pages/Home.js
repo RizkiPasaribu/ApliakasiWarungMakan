@@ -112,7 +112,7 @@ export default class Home extends Component {
     // }
 
     //cek data masuk
-    cekMasuk(){
+    cekMasuk=()=>{
         axios.get(API_URL+"keranjangs")
             .then(response => {
                 const keranjangs = response.data;
@@ -152,7 +152,7 @@ export default class Home extends Component {
 
                     <div className="col-lg-3">
                         <h3>Pesanan</h3>
-                        <Keranjang keranjang={this.state.keranjangs}{...this.props}/>
+                        <Keranjang cekMasuk={this.cekMasuk} keranjang={this.state.keranjangs}{...this.props}/>
 
                         {this.state.keranjangs.length !==0 &&  <TotalBayar keranjang={this.state.keranjangs}{...this.props}/>}
                     </div>
